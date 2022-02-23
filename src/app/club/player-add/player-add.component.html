@@ -1,0 +1,70 @@
+<div class="up">
+  <h2>Add a player</h2>
+  <br><button mat-flat-button color="primary" (click)="back()" >Back</button>
+</div>
+<div class="about-page">
+
+  <form [formGroup]="addForm">
+    <div>
+      <div class="justify-content-center">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the name of the player</mat-label>
+            <input matInput
+                   formControlName="player_name">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the surname of the player</mat-label>
+            <input matInput
+                   formControlName="player_surname">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the number of games</mat-label>
+            <input matInput
+                   formControlName="player_games">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the number of goals scored</mat-label>
+            <input matInput
+                   min="0"
+                   formControlName="player_goals">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Select the player's position</mat-label>
+            <mat-select formControlName="player_position">
+              <mat-option value="GK">GK</mat-option>
+              <mat-option value="LB">LB</mat-option>
+              <mat-option value="RB">RB</mat-option>
+              <mat-option value="CB">CB</mat-option>
+              <mat-option value="CM">CM</mat-option>
+              <mat-option value="RM">RM</mat-option>
+              <mat-option value="LM">LM</mat-option>
+              <mat-option value="LB">LB</mat-option>
+              <mat-option value="ST">ST</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div id="controls" class="row">
+        <button style="width: 20%"  [disabled]="addForm.invalid"   mat-flat-button color="primary" (click) = "createPlayer()">
+          Add Player
+        </button>
+      </div>
+    </div>
+  </form>
+
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,48 @@
+<div class="up">
+  <h2>Add a football club</h2>
+  <br><button mat-flat-button color="primary" routerLink="/club">Back</button>
+</div>
+<div class="about-page">
+  <form [formGroup]="addForm">
+    <div>
+      <div class="justify-content-center" style="font-size: 15px">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the name of the club</mat-label>
+            <input matInput
+                   formControlName="club_name">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the number of games played</mat-label>
+            <input matInput
+                   formControlName="club_games">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the number of goals scored</mat-label>
+            <input matInput
+                   formControlName="club_goals">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter the number of points scored</mat-label>
+            <input matInput
+                   formControlName="club_points">
+          </mat-form-field>
+        </div>
+      </div>
+      <div id="controls" class="row">
+        <button style="width: 20%"  [disabled]="addForm.invalid" mat-flat-button color="primary" (click) = "createClub()">
+          Add Club now
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

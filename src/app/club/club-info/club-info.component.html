@@ -1,0 +1,47 @@
+<div class="up">
+  <button id="add" [routerLink]="['player-add']" mat-flat-button color="primary">Add player</button>
+  <h2 style="text-align: center">Table of club players</h2>
+  <button id="back" mat-flat-button color="primary" routerLink="/club">Back</button>
+</div>
+
+
+<div style="text-align: center" >
+  <table class="table" style="display: inline-block" *ngIf="players.length>0">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Position</th>
+        <th>Games</th>
+        <th>Goals</th>
+        <th>Delete</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{player.player_name}}</td>
+        <td>{{player.player_surname}}</td>
+        <td>{{player.player_position}}</td>
+        <td>{{player.player_games}}</td>
+        <td>{{player.player_goals}}</td>
+        <td>
+          <button mat-flat-button color="warn" style="font-size: 12px;background-color: black"
+                  (click)="removePlayer(player)"
+          >Delete
+          </button>
+        </td>
+        <td>
+          <button mat-flat-button color="accent" style="font-size: 12px;background-color: darkred"
+                  [routerLink]="['update',player.id]">Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet></router-outlet>
+
